@@ -187,9 +187,9 @@ The web interface will be available at [http://localhost:5000](http://localhost:
 
 ## 📜 Credits & License
 
-- Developed by [Your Name/Team]
+- Developed by Benlehzil Yosr
 - Inspired by open-source NIDS and SIEM solutions
-- License: MIT (or specify your license)
+  
 
 ---
 
