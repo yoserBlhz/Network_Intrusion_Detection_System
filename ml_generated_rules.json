@@ -1,0 +1,364 @@
+[
+  {
+    "rule_id": "ML_PROTOCOL_6_20250622_135434",
+    "rule_type": "protocol_anomaly",
+    "protocol": 6,
+    "protocol_name": "TCP",
+    "conditions": {
+      "packets_threshold": 74.3,
+      "bytes_threshold": 16147.11,
+      "unique_ports_threshold": 64,
+      "unique_src_ips_threshold": 60,
+      "unique_dst_ips_threshold": 60
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated protocol anomaly rule for TCP",
+    "confidence": 0.8,
+    "created_at": "2025-06-22T13:54:34.248165",
+    "stats": {
+      "avg_packets": 11.4,
+      "avg_bytes": 2373.91,
+      "flow_count": 78
+    }
+  },
+  {
+    "rule_id": "ML_PROTOCOL_17_20250622_135434",
+    "rule_type": "protocol_anomaly",
+    "protocol": 17,
+    "protocol_name": "UDP",
+    "conditions": {
+      "packets_threshold": 20.5,
+      "bytes_threshold": 9889.89,
+      "unique_ports_threshold": 18,
+      "unique_src_ips_threshold": 15,
+      "unique_dst_ips_threshold": 16
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated protocol anomaly rule for UDP",
+    "confidence": 0.8,
+    "created_at": "2025-06-22T13:54:34.248165",
+    "stats": {
+      "avg_packets": 10.94,
+      "avg_bytes": 5001.33,
+      "flow_count": 18
+    }
+  },
+  {
+    "rule_id": "ML_PORT_443_20250622_135434",
+    "rule_type": "port_anomaly",
+    "port": 443,
+    "conditions": {
+      "packets_threshold": 28.13,
+      "bytes_threshold": 9075.36,
+      "unique_src_ips_threshold": 1,
+      "unique_dst_ips_threshold": 61,
+      "protocols_threshold": 3
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated port anomaly rule for port 443",
+    "confidence": 0.75,
+    "created_at": "2025-06-22T13:54:34.252154",
+    "stats": {
+      "avg_packets": 7.07,
+      "avg_bytes": 2080.86,
+      "flow_count": 43
+    }
+  },
+  {
+    "rule_id": "ML_TEMPORAL_12_20250622_135434",
+    "rule_type": "temporal_anomaly",
+    "hour": 12,
+    "conditions": {
+      "packets_threshold": 16.965,
+      "bytes_threshold": 4299.825000000001,
+      "unique_src_ips_threshold": 61,
+      "unique_dst_ips_threshold": 62
+    },
+    "severity": "LOW",
+    "description": "ML-generated temporal anomaly rule for hour 12:00",
+    "confidence": 0.7,
+    "created_at": "2025-06-22T13:54:34.257140",
+    "baseline": {
+      "avg_packets": 11.31,
+      "avg_bytes": 2866.55,
+      "flow_count": 96
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_192_168_1_7_20250622_135434",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "192.168.1.7",
+    "conditions": {
+      "total_packets_threshold": 449.6,
+      "avg_packets_per_flow_threshold": 14.052000000000001,
+      "unique_destinations_threshold": 36,
+      "unique_ports_threshold": 4,
+      "unique_protocols_threshold": 1
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 192.168.1.7",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T13:54:34.264122",
+    "behavior_profile": {
+      "total_packets": 562,
+      "avg_packets_per_flow": 11.71,
+      "unique_destinations": 46,
+      "unique_ports": 6,
+      "unique_protocols": 2,
+      "total_flows": 48
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_208_95_112_1_20250622_135434",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "208.95.112.1",
+    "conditions": {
+      "total_packets_threshold": 110.4,
+      "avg_packets_per_flow_threshold": 165.6,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 0,
+      "unique_protocols_threshold": 0
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 208.95.112.1",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T13:54:34.264122",
+    "behavior_profile": {
+      "total_packets": 138,
+      "avg_packets_per_flow": 138.0,
+      "unique_destinations": 1,
+      "unique_ports": 1,
+      "unique_protocols": 1,
+      "total_flows": 1
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_216_58_205_195_20250622_135434",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "216.58.205.195",
+    "conditions": {
+      "total_packets_threshold": 10.4,
+      "avg_packets_per_flow_threshold": 7.8,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 1,
+      "unique_protocols_threshold": 1
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 216.58.205.195",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T13:54:34.264122",
+    "behavior_profile": {
+      "total_packets": 13,
+      "avg_packets_per_flow": 6.5,
+      "unique_destinations": 1,
+      "unique_ports": 2,
+      "unique_protocols": 2,
+      "total_flows": 2
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_34_110_164_207_20250622_135434",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "34.110.164.207",
+    "conditions": {
+      "total_packets_threshold": 12.0,
+      "avg_packets_per_flow_threshold": 9.0,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 1,
+      "unique_protocols_threshold": 1
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 34.110.164.207",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T13:54:34.265119",
+    "behavior_profile": {
+      "total_packets": 15,
+      "avg_packets_per_flow": 7.5,
+      "unique_destinations": 1,
+      "unique_ports": 2,
+      "unique_protocols": 2,
+      "total_flows": 2
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_54_205_235_91_20250622_135434",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "54.205.235.91",
+    "conditions": {
+      "total_packets_threshold": 52.800000000000004,
+      "avg_packets_per_flow_threshold": 79.2,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 0,
+      "unique_protocols_threshold": 0
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 54.205.235.91",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T13:54:34.265119",
+    "behavior_profile": {
+      "total_packets": 66,
+      "avg_packets_per_flow": 66.0,
+      "unique_destinations": 1,
+      "unique_ports": 1,
+      "unique_protocols": 1,
+      "total_flows": 1
+    }
+  },
+  {
+    "rule_id": "ML_PROTOCOL_6_20250622_140546",
+    "rule_type": "protocol_anomaly",
+    "protocol": 6,
+    "protocol_name": "TCP",
+    "conditions": {
+      "packets_threshold": 454.0,
+      "bytes_threshold": 295582.54,
+      "unique_ports_threshold": 73,
+      "unique_src_ips_threshold": 70,
+      "unique_dst_ips_threshold": 70
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated protocol anomaly rule for TCP",
+    "confidence": 0.8,
+    "created_at": "2025-06-22T14:05:46.371863",
+    "stats": {
+      "avg_packets": 89.64,
+      "avg_bytes": 41150.52,
+      "flow_count": 92
+    }
+  },
+  {
+    "rule_id": "ML_PROTOCOL_17_20250622_140546",
+    "rule_type": "protocol_anomaly",
+    "protocol": 17,
+    "protocol_name": "UDP",
+    "conditions": {
+      "packets_threshold": 309.1,
+      "bytes_threshold": 197567.54,
+      "unique_ports_threshold": 31,
+      "unique_src_ips_threshold": 27,
+      "unique_dst_ips_threshold": 30
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated protocol anomaly rule for UDP",
+    "confidence": 0.8,
+    "created_at": "2025-06-22T14:05:46.372865",
+    "stats": {
+      "avg_packets": 71.22,
+      "avg_bytes": 39919.06,
+      "flow_count": 36
+    }
+  },
+  {
+    "rule_id": "ML_PORT_443_20250622_140546",
+    "rule_type": "port_anomaly",
+    "port": 443,
+    "conditions": {
+      "packets_threshold": 321.14,
+      "bytes_threshold": 352802.01,
+      "unique_src_ips_threshold": 1,
+      "unique_dst_ips_threshold": 82,
+      "protocols_threshold": 3
+    },
+    "severity": "MEDIUM",
+    "description": "ML-generated port anomaly rule for port 443",
+    "confidence": 0.75,
+    "created_at": "2025-06-22T14:05:46.382831",
+    "stats": {
+      "avg_packets": 70.98,
+      "avg_bytes": 53333.59,
+      "flow_count": 59
+    }
+  },
+  {
+    "rule_id": "ML_TEMPORAL_13_20250622_140546",
+    "rule_type": "temporal_anomaly",
+    "hour": 13,
+    "conditions": {
+      "packets_threshold": 126.69,
+      "bytes_threshold": 61206.255,
+      "unique_src_ips_threshold": 78,
+      "unique_dst_ips_threshold": 80
+    },
+    "severity": "LOW",
+    "description": "ML-generated temporal anomaly rule for hour 13:00",
+    "confidence": 0.7,
+    "created_at": "2025-06-22T14:05:46.402777",
+    "baseline": {
+      "avg_packets": 84.46,
+      "avg_bytes": 40804.17,
+      "flow_count": 128
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_192_168_1_7_20250622_140546",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "192.168.1.7",
+    "conditions": {
+      "total_packets_threshold": 3821.6000000000004,
+      "avg_packets_per_flow_threshold": 88.18799999999999,
+      "unique_destinations_threshold": 48,
+      "unique_ports_threshold": 4,
+      "unique_protocols_threshold": 1
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 192.168.1.7",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T14:05:46.429708",
+    "behavior_profile": {
+      "total_packets": 4777,
+      "avg_packets_per_flow": 73.49,
+      "unique_destinations": 61,
+      "unique_ports": 6,
+      "unique_protocols": 2,
+      "total_flows": 65
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_3_224_44_50_20250622_140546",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "3.224.44.50",
+    "conditions": {
+      "total_packets_threshold": 522.4,
+      "avg_packets_per_flow_threshold": 783.6,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 0,
+      "unique_protocols_threshold": 0
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 3.224.44.50",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T14:05:46.430706",
+    "behavior_profile": {
+      "total_packets": 653,
+      "avg_packets_per_flow": 653.0,
+      "unique_destinations": 1,
+      "unique_ports": 1,
+      "unique_protocols": 1,
+      "total_flows": 1
+    }
+  },
+  {
+    "rule_id": "ML_BEHAVIOR_31_13_69_22_20250622_140546",
+    "rule_type": "behavioral_anomaly",
+    "src_ip": "31.13.69.22",
+    "conditions": {
+      "total_packets_threshold": 1007.2,
+      "avg_packets_per_flow_threshold": 1510.8,
+      "unique_destinations_threshold": 0,
+      "unique_ports_threshold": 0,
+      "unique_protocols_threshold": 0
+    },
+    "severity": "HIGH",
+    "description": "ML-generated behavioral anomaly rule for source IP 31.13.69.22",
+    "confidence": 0.85,
+    "created_at": "2025-06-22T14:05:46.430706",
+    "behavior_profile": {
+      "total_packets": 1259,
+      "avg_packets_per_flow": 1259.0,
+      "unique_destinations": 1,
+      "unique_ports": 1,
+      "unique_protocols": 1,
+      "total_flows": 1
+    }
+  }
+]

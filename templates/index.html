@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIDS Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4 text-white">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-2xl font-bold">NIDS</a>
+            <div>
+                <a href="/" class="px-4 bg-blue-700 rounded">Dashboard</a>
+                <a href="/upload" class="px-4">Upload CSV</a>
+                <a href="/analysis" class="px-4">Analysis</a>
+                <a href="/structured_alerts" class="px-4">Structured Alerts</a>
+                <a href="/ml_rules" class="px-4">ML Rules</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Network Intrusion Detection Dashboard</h1>
+        <div class="bg-white p-4 shadow rounded">
+            <h2 class="text-xl font-semibold mb-2">Real-Time Packets Per Second</h2>
+            <canvas id="realtimeTrafficChart"></canvas>
+        </div>
+        <div class="bg-white p-4 shadow rounded mt-4">
+            <h2 class="text-xl font-semibold mb-2">Live Network Flows (last 10 seconds)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2">Source IP</th>
+                            <th class="px-4 py-2">Destination IP</th>
+                            <th class="px-4 py-2">Protocol</th>
+                            <th class="px-4 py-2">Direction</th>
+                            <th class="px-4 py-2">Packets</th>
+                            <th class="px-4 py-2">Bytes</th>
+                            <th class="px-4 py-2">Country</th>
+                            <th class="px-4 py-2">Last Seen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="live-flows-table-body">
+                        <!-- Live flows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

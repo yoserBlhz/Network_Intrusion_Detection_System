@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Analysis - NIDS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4 text-white">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-2xl font-bold">NIDS</a>
+            <div>
+                <a href="/" class="px-4">Dashboard</a>
+                <a href="/upload" class="px-4">Upload CSV</a>
+                <a href="/analysis" class="px-4 bg-blue-700 rounded">Analysis</a>
+                <a href="/structured_alerts" class="px-4">Structured Alerts</a>
+                <a href="/ml_rules" class="px-4">ML Rules</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Live Network Flows Analysis</h1>
+        <p class="text-gray-600 mb-4">Real-time analysis of network traffic flows captured by the packet sniffer</p>
+        
+        <!-- Analysis Controls -->
+        <div class="bg-white p-4 shadow rounded mb-4">
+            <div class="flex items-center space-x-4">
+                <label class="text-sm font-medium">Time Range:</label>
+                <select id="timeRange" class="border rounded px-3 py-1">
+                    <option value="1">Last Hour</option>
+                    <option value="6">Last 6 Hours</option>
+                    <option value="24" selected>Last 24 Hours</option>
+                    <option value="168">Last Week</option>
+                </select>
+                <button onclick="generateAnalysis()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Analyze Live Flows
+                </button>
+                <button onclick="downloadReport()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                    Download Report
+                </button>
+            </div>
+            <div class="mt-2 text-sm text-gray-600">
+                <span id="analysisStatus">Ready to analyze live network flows</span>
+            </div>
+        </div>
+
+        <!-- Summary Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold text-gray-700">Total Flows</h3>
+                <p id="totalFlows" class="text-2xl font-bold text-blue-600">-</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold text-gray-700">Suspicious Flows</h3>
+                <p id="suspiciousFlows" class="text-2xl font-bold text-red-600">-</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold text-gray-700">Total Bytes</h3>
+                <p id="totalBytes" class="text-2xl font-bold text-green-600">-</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold text-gray-700">Unique IPs</h3>
+                <p id="uniqueIPs" class="text-2xl font-bold text-purple-600">-</p>
+            </div>
+        </div>
+
+        <!-- Protocol Heatmap -->
+        <div class="bg-white p-4 shadow rounded mb-6">
+            <h2 class="text-xl font-semibold mb-4">Live Protocol Activity Heatmap</h2>
+            <div id="heatmapContainer" class="text-center">
+                <img id="heatmapImage" class="max-w-full h-auto" style="display: none;">
+                <p id="heatmapLoading" class="text-gray-500">Click "Analyze Live Flows" to create heatmap</p>
+            </div>
+        </div>
+
+        <!-- Top IPs Analysis -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold mb-4">Top IPs by Bytes</h3>
+                <div id="topIPsBytes" class="space-y-2">
+                    <p class="text-gray-500">No data available</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold mb-4">Top IPs by Packets</h3>
+                <div id="topIPsPackets" class="space-y-2">
+                    <p class="text-gray-500">No data available</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-lg font-semibold mb-4">Top IPs by Destinations</h3>
+                <div id="topIPsDestinations" class="space-y-2">
+                    <p class="text-gray-500">No data available</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suspicious Flows -->
+        <div class="bg-white p-4 shadow rounded mb-6">
+            <h2 class="text-xl font-semibold mb-4">Suspicious Protocol/Port Combinations</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left">Source IP</th>
+                            <th class="px-4 py-2 text-left">Destination IP</th>
+                            <th class="px-4 py-2 text-left">Protocol</th>
+                            <th class="px-4 py-2 text-left">Port</th>
+                            <th class="px-4 py-2 text-left">Suspicion Reason</th>
+                            <th class="px-4 py-2 text-left">Direction</th>
+                            <th class="px-4 py-2 text-left">Country</th>
+                            <th class="px-4 py-2 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suspiciousFlowsTable">
+                        <tr>
+                            <td colspan="8" class="px-4 py-2 text-center text-gray-500">No suspicious flows detected</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PCAP Files -->
+        <div class="bg-white p-4 shadow rounded">
+            <h2 class="text-xl font-semibold mb-4">Suspicious Flow PCAP Files</h2>
+            <div id="pcapFiles" class="space-y-2">
+                <p class="text-gray-500">No PCAP files available</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
