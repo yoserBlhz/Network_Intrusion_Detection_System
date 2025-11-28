@@ -86,7 +86,13 @@ The web interface will be available at [http://localhost:5000](http://localhost:
 - **ML Rules**: Generate, view, and manage ML-based detection rules
 - **Structured Alerts**: Review and filter real-time security alerts
 - **Upload**: Analyze CSV data manually
-
+<img width="1887" height="855" alt="Image" src="https://github.com/user-attachments/assets/6fea4f65-4b79-4840-b32d-6e499a8d3928" />
+<img width="1897" height="866" alt="Image" src="https://github.com/user-attachments/assets/8151ff8a-e049-436c-9681-9337c0aca6da" />
+<img width="1872" height="637" alt="Image" src="https://github.com/user-attachments/assets/fe2b4568-b29e-4fb1-8d91-1156d02094cc" />
+<img width="1846" height="371" alt="Image" src="https://github.com/user-attachments/assets/0fb95892-683d-4342-b2d6-810bcb8d4cac" />
+<img width="1907" height="808" alt="Image" src="https://github.com/user-attachments/assets/9bb6d9f8-8ea7-46cf-8dc3-42c914d7e721" />
+<img width="1872" height="566" alt="Image" src="https://github.com/user-attachments/assets/a77bffa9-332e-453d-89f4-521382ca61ec" />
+<img width="1868" height="552" alt="Image" src="https://github.com/user-attachments/assets/75d461f6-8ec0-4ef5-8af0-1cc37faae289" />
 ---
 
 ## 🧠 ML Rule Generation
